@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cloud Governance Simulator for SMEs (SDG 8)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>☁️ Cloud Governance Simulator for SMEs</h1>
+      <p class="tagline">SDG 8 — Supporting SME cloud adoption with governance tradeoffs & simulated industry case data</p>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <section class="controls">
+      <h2>Simulation Controls</h2>
+
+      <div class="row">
+        <label>Number of SMEs:
+          <input id="numSMEs" type="number" min="1" max="200" value="12" />
+        </label>
+
+        <label>Sector:
+          <select id="sector">
+            <option value="tech">Technology</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="retail">Retail</option>
+            <option value="health">Healthcare</option>
+            <option value="finance">Finance</option>
+          </select>
+        </label>
+
+        <label>Governance Maturity:
+          <input id="govMaturity" type="range" min="0" max="100" value="40" />
+          <span id="govVal">40</span>%
+        </label>
+      </div>
+
+      <div class="row">
+        <label>Budget Sensitivity:
+          <input id="budget" type="range" min="0" max="100" value="50" />
+          <span id="budgetVal">50</span>%
+        </label>
+
+        <label>Compliance Priority:
+          <input id="compliance" type="range" min="0" max="100" value="60" />
+          <span id="complianceVal">60</span>%
+        </label>
+
+        <button id="simulateBtn" class="primary">Run Simulation</button>
+        <button id="downloadBtn" class="secondary">Download CSV</button>
+      </div>
+
+      <p class="note">Tip: adjust governance maturity or budget sensitivity to see effects on adoption, risk, and expected productivity gain.</p>
+    </section>
+
+    <section class="visuals">
+      <div class="chart-card">
+        <h3>Adoption vs Governance (Aggregate)</h3>
+        <canvas id="adoptChart"></canvas>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-card small">
+          <h4>Risk Breakdown</h4>
+          <canvas id="riskChart"></canvas>
+        </div>
+
+        <div class="chart-card small">
+          <h4>Productivity Gain Distribution</h4>
+          <canvas id="prodChart"></canvas>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <h3>Simulated SME Case Data</h3>
+        <div id="tableWrap"></div>
+      </div>
+    </section>
+
+    <section class="about">
+      <h3>About this tool</h3>
+      <p>This lightweight simulator creates synthetic SME adoption-case data inspired by industry reports. It helps teams visualize how governance maturity, budget constraints and compliance priorities influence cloud adoption, risk profile, and expected productivity gains — supporting SDG 8 by encouraging responsible economic growth among SMEs.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 • Cloud Governance Simulator — SDG 8: Decent Work & Economic Growth</small>
+    </div>
+  </footer>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
